@@ -23,19 +23,44 @@
 	<marquee><h3>Bienvenu dans la banque du peuple</h3></marquee>
  <div class="wrap">
  	<h2>Ouverture de compte</h2>
- 	<script type="text/javascript" src="js/script.js"></script>
- 	<form id="formulairecompte"  name="formcompte">
+ 	
+ 	<form id="formulairecompte"  name="formcompte" action="Controllers/ControllerCompte.php" method="POST">
 
- 		<div class="choixcompte">
+ 		<div class="choixcompte" style="display: flex; flex-direction: row;
+	margin-left: 200px; margin-right: 200px">
  			<div>
- 			<!-- <select type="select" id="typecompte" name="typecompte" onChange="afficherCompte()">
- 				<option value=1>Choisissez le type de compte</option>
-				<option value=2>Compte épargne simple et xeewel</option>
-				<option value=3>Compte courant pour les salariés</option>
-				<option value=4>Compte bloqué</option>
 
-			</select> -->
-			<?php require "liste.php" ;?>
+				<?php
+			    require "Models/Config.php";
+			    require "Models/Manager.php"; 
+			    $prin = new Manager();
+			    $pdo = $prin->getConnexion();
+			    $typeC = $pdo->prepare('SELECT * FROM typeCompte');
+			    $typeC->execute();
+			    $typecompte=$typeC->fetchALL();
+			    //var_dump($typecompte);?>
+			    <select type="select" id="typecompte" name="typecompte" onchange="testcompte()" >
+			        <option value="">Choisissez le type de compte</option>
+			        <?php foreach ($typecompte as $type): ?>
+			            <option value="<?= $type['id']?>"><?= $type['libelle']?></option>
+			            <?php endforeach ;?>
+			    </select>
+
+			    <?php
+    			
+    			$prin = new Manager();
+    			$pdo = $prin->getConnexion();
+    			$typeC = $pdo->prepare('SELECT * FROM physique');
+    			$typeC->execute();
+    			$typecompte=$typeC->fetchALL();
+    			//var_dump($typecompte);?>
+    			<select type="select" id="client" name="client">
+        			<option value=1>Choisissez le client</option>
+        			<?php foreach ($typecompte as $type): ?>
+            		<option value="<?= $type['id_physique']?>"><?= $type['id_physique']?></option>
+            		<?php endforeach ;?>
+    			</select>
+    
  		</div>
  		
  		</div> 
@@ -49,21 +74,7 @@
 				<option valeur="other">Xeweul</option>
 				<option valeur="other">bloque</option>
 			</select> -->
-			<?php
-    require "Models/Config.php";
-    require "Models/Manager.php"; 
-    $prin = new Manager();
-    $pdo = $prin->getConnexion();
-    $typeC = $pdo->prepare('SELECT * FROM typeCompte');
-    $typeC->execute();
-    $typecompte=$typeC->fetchALL();
-    //var_dump($typecompte);?>
-    <select type="select" id="typecompte" name="typecompte" onblur ="testcompte()" onchange ="afficherCompte()" >
-        <option value="">Choisissez le type de compte</option>
-        <?php foreach ($typecompte as $type): ?>
-            <option value="<?= $type['id']?>"><?= $type['libelle']?></option>
-            <?php endforeach ;?>
-    </select>
+			
 			
 			</div>
 
@@ -72,8 +83,8 @@
  		<div class="colonne1" >
  		<div class="premiere" id="premiere" style="display: none ">
  			<div class="first" id="first" style="display: none ">
- 			<input type="text" id="numeroagence" name="numeroagence" placeholder="Numero Agence">
- 			<input type="text" id="numerocompte" name="numerocompte" placeholder="Numero Compte">
+ 			<input type="text" id="numeroagence" name="numagence" placeholder="Numero Agence">
+ 			<input type="text" id="numerocompte" name="numcompte" placeholder="Numero Compte">
  			<input type="text" id="clerib" name="clerib" placeholder="Cle Rib" onsubmit="return check()">
  			<input type="text" id="montant" name="montant" placeholder="Montant Initial ">
  			</div>
@@ -102,11 +113,11 @@
  			<!-- <input type="text" id="montant" name="montant" placeholder="Montant Initial "> -->
  		</div>
  		<div class="troisieme">
- 			<div class="trois">
+ 			<div class="trois" style="margin-left: 80px ;margin-right: 120px;">
  			<input type="text" id="nomemployeur" name="nom" placeholder="Nom">
  			<input type="text" id="adressemployeur" name="adresse" placeholder="Adresse">
  			</div>
- 			<div class="quatre">
+ 			<div class="quatre" style="margin-left: 80px ;margin-right: 120px;">
  			<input type="text" id="rs" name="raisonsociale" placeholder="Raison Sociale">
  			<input type="text" name="id" id="id" placeholder="NINEA">
  			</div>
@@ -140,6 +151,7 @@
  	</form>
  	
  </div>
-</body>
 
+</body>
+<script type="text/javascript" src="js/compte.js"></script>
 </html>

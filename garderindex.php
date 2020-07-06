@@ -29,43 +29,43 @@
  <div class="wrap">
  	<h2>Ouverture de compte</h2>
 
-<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
+ 	
+ 	
+ 	<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
  		<!-- <h4>Infos Compte</h4>-->
- 		<div class="choix" style="margin-left: 250px;">
- 			<div >
- 				
- 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" >
- 				<!-- <option value=1>Choisissez le type de client</option> -->
-				<option value="index2.php">Client Physique</option>
-				<option value="client_moral.php">Client Moral</option>
+ 		<div class="choix">
+ 			<div>
+ 			<select type="select" id="typeclient" name="typeclient" onChange="afficher()">
+ 				<option value=1>Choisissez le type de client</option>
+				<option value=2>Client Physique</option>
+				<option value=3>Client Moral</option>
 			</select>
-
  		</div>
  		
  		</div> 
  		
- 		<h4 id="h4"  >Infos Client</h4>
+ 		<h4 id="h4" style="display: none " >Infos Client</h4>
+ 		<div class="colonne" >	
+ 		<div class="aicha" id="aicha" style="display: none ">
  			
- 		<div class="aicha" id="aicha" >
- 			
- 			<input type="text" id="nom" name="nom" placeholder="Nom">
- 			<input type="text" id="prenom" name="prenom" placeholder="Prenom">
- 			<input type="text" id="adresse" name="adresse" placeholder="Adresse">
+ 			<input type="text" id="nom" name="nom" placeholder="Nom" >
+ 			<input type="text" id="prenom" name="prenom" placeholder="Prenom" >
+ 			<input type="text" id="adresse" name="adresse" placeholder="Adresse" >
  		</div>
- 		<div class="cha" id="cha" >
+ 		<div class="cha" id="cha" style="display: none">
  			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);">
- 			<input type="text" id="numtel" name="numero" placeholder="Numero tel">
+ 			<input type="text" id="numtel" name="numero" placeholder="Numero tel" >
  			<input  type="text" id="cni" name="cni" placeholder="Numero d'Identification">
  		</div>
 
- 		<!-- 
- 		<div class="label" id="label">
+ 		</div>
+ 		<div class="label" id="label" style="display: none">
      		<label for="processedCheckBox">Es-tu salarié(e) ?</label>
-     		<input type="checkbox" id="processedCheckBox" >
+     		<input type="checkbox" id="processedCheckBox" checked onchange="getCheckboxStatus()">
 		</div>
-	<div id="infosemploi"  >
+	<div id="infosemploi" style="display: none" >
 
- 		<div class="chacha" id="chacha" >
+ 		<div class="chacha" id="chacha" style="display: none" >
  			<input type="text" id="salaire" name="salaire" placeholder="Salaire">
  			<input type="text" id="profession" name="profession" placeholder="Profession">
  			
@@ -83,19 +83,18 @@
  			</div>
  		</div>
  	</div>
--->
-<script type="text/javascript" src="js/monscript.js"></script>
+
  	
- 	<div id="valider" class="valider" > 
- 		
- 		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
+ 	<div id="valider" class="valider" style="display: none">
+ 		<input type="submit" name="submit"  value="Valider" style="background-color: #006400" >
+ 		<!-- <input type="submit" name="envoyer"  value="Envoyer" style="background-color: #006400" > -->
  		
  	</div>
  		<span id="msg" style="color:red"></span>
  	</form>
- 	</div>
+ 	
+ </div>
 </body>
-
 <script type="text/javascript">
 	
 	function validateEmail(emailField){
@@ -104,13 +103,14 @@
         if (reg.test(emailField.value) == false) 
         {
             alert('Invalid Email Address');
-            return false;
+            
         }
 
         return true;
 
 }
 </script>
+<script type="text/javascript" src="js/monscript.js"></script>
 
 
 </html>

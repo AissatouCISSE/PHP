@@ -26,8 +26,8 @@ class Physique{
 }
  // the getters ou accessur
  public function getIdPhysique(){ return $this->id_physique;}
- public function getPrenom(){ return $this->prenom;}
  public function getNom(){ return $this->nom;}
+ public function getPrenom(){ return $this->prenom;}
  public function getAdresse(){ return $this->adresse;}
  public function getEmail(){ return $this->email;}
  public function getNumero(){ return $this->numero;}

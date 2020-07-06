@@ -8,7 +8,6 @@
 	
 	<title>Exercice sur HTML - CSS - JS</title>
 </head>
-
 <body>
 	<i class="fa fa-bank" style="font-size:48px;color:white;" text="Banque du peuple"></i>
 
@@ -28,18 +27,19 @@
 	<marquee><h3>Bienvenu dans la banque du peuple</h3></marquee>
  <div class="wrap">
  	<h2>Ouverture de compte</h2>
+ 	
 
- 	
- 	
- 	<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
+ 	<form id="formulaire" name="form" >
  		<!-- <h4>Infos Compte</h4>-->
- 		<div class="choix">
+ 		<div class="choix" style="margin-left: 200px;">
  			<div>
- 			<select type="select" id="typeclient" name="typeclient" onChange="afficher()">
+ 				
+ 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" onChange="afficher()">
  				<option value=1>Choisissez le type de client</option>
-				<option value=2>Client Physique</option>
-				<option value=3>Client Moral</option>
+				<option value="index2.php">Client Physique</option>
+				<option value="client_moral.php">Client Moral</option>
 			</select>
+
  		</div>
  		
  		</div> 
@@ -48,14 +48,14 @@
  		<div class="colonne" >	
  		<div class="aicha" id="aicha" style="display: none ">
  			
- 			<input type="text" id="nom" name="nom" placeholder="Nom" required>
- 			<input type="text" id="prenom" name="prenom" placeholder="Prenom" required>
- 			<input type="text" id="adresse" name="adresse" placeholder="Adresse" required>
+ 			<input type="text" id="nom" name="nom" placeholder="Nom">
+ 			<input type="text" id="prenom" name="prenom" placeholder="Prenom">
+ 			<input type="text" id="adresse" name="adresse" placeholder="Adresse">
  		</div>
  		<div class="cha" id="cha" style="display: none">
- 			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);" required  >
- 			<input type="text" id="numtel" name="numero" placeholder="Numero tel" required>
- 			<input  type="text" id="cni" name="cni" placeholder="Numero d'Identification" required>
+ 			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);"   >
+ 			<input type="text" id="numtel" name="numero" placeholder="Numero tel">
+ 			<input  type="text" id="cni" name="cni" placeholder="Numero d'Identification">
  		</div>
 
  		</div>
@@ -74,28 +74,64 @@
  		<h4>Infos Employeur</h4>
  		<div class="troisieme">
  			<div class="trois">
- 			<input type="text" id="nomemployeur" name="nomentre" placeholder="Nom">
- 			<input type="text" id="adressemployeur" name="adresseentre" placeholder="Adresse">
+ 			<input type="text" id="nomemployeur" name="nom" placeholder="Nom">
+ 			<input type="text" id="adressemployeur" name="adresse" placeholder="Adresse">
  			</div>
  			<div class="quatre">
  			<input type="text" id="rs" name="raisonsociale" placeholder="Raison Sociale">
- 			<input type="text" name="identre" id="id" placeholder="NINEA">
+ 			<input type="text" name="id" id="id" placeholder="NINEA">
  			</div>
  		</div>
  	</div>
 
  	
  	<div id="valider" class="valider" style="display: none">
- 		<input type="submit" name="submit"  value="Valider" style="background-color: #006400" >
- 		<input type="submit" name="envoyer"  value="Envoyer" style="background-color: #006400" >
+ 		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
  		
  	</div>
+
+<div id="valider1" class="valider1" style="display: none">
+ 		<input type="submit" name="submit"  value="Submit" style="background-color: #006400" >
+ 		
+ 	</div>
+
  		<span id="msg" style="color:red"></span>
+ 	</form>
+
+ 	<!-- //form2 -->
+
+ 	<form id="formmoral" name="formmoral" action="Controllers/ControllerMoral.php" method="POST"  style="display: none">
+ 		
+ 		<div id="info" style="display: none" >
+
+ 		<div class="chacha" id="cacha" style="display: none" >
+ 			<input type="text" id="salaire" name="salaire" placeholder="Salaire">
+ 			<input type="text" id="profession" name="profession" placeholder="Profession">
+ 			
+ 		</div>
+ 		
+ 		<h4>Infos Employeur</h4>
+ 		<div class="troisiem">
+ 			<div class="trois">
+ 			<input type="text" id="nomemployeur" name="nom" placeholder="Nom">
+ 			<input type="text" id="adressemployeur" name="adresse" placeholder="Adresse">
+ 			</div>
+ 			<div class="quatre">
+ 			<input type="text" id="rs" name="raisonsociale" placeholder="Raison Sociale">
+ 			<input type="text" name="id" id="id" placeholder="NINEA">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div id="valider" class="valider" style="display: none">
+ 		<input  type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
+ 		
+ 	</div>
  	</form>
  	
  </div>
 </body>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	
 	function validateEmail(emailField){
         var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -103,14 +139,12 @@
         if (reg.test(emailField.value) == false) 
         {
             alert('Invalid Email Address');
-            
+            return false;
         }
 
         return true;
 
 }
-</script> -->
+</script>
 <script type="text/javascript" src="js/monscript.js"></script>
-
-
 </html>

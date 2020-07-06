@@ -8,7 +8,6 @@
 	
 	<title>Exercice sur HTML - CSS - JS</title>
 </head>
-
 <body>
 	<i class="fa fa-bank" style="font-size:48px;color:white;" text="Banque du peuple"></i>
 
@@ -28,24 +27,24 @@
 	<marquee><h3>Bienvenu dans la banque du peuple</h3></marquee>
  <div class="wrap">
  	<h2>Ouverture de compte</h2>
-
-<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
+ 	
+ 	<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
  		<!-- <h4>Infos Compte</h4>-->
- 		<div class="choix" style="margin-left: 250px;">
- 			<div >
+ 		<!-- <div class="choix">
+ 			<div>
  				
- 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" >
- 				<!-- <option value=1>Choisissez le type de client</option> -->
-				<option value="index2.php">Client Physique</option>
-				<option value="client_moral.php">Client Moral</option>
+ 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" onChange="afficher()">
+ 				<option value=1>Choisissez le type de client</option>
+				<option value="garderindex.php">Client Physique</option>
+				<option value=3>Client Moral</option>
 			</select>
 
  		</div>
  		
  		</div> 
- 		
+ 		 -->
  		<h4 id="h4"  >Infos Client</h4>
- 			
+ 		<div class="colonne" >	
  		<div class="aicha" id="aicha" >
  			
  			<input type="text" id="nom" name="nom" placeholder="Nom">
@@ -53,19 +52,19 @@
  			<input type="text" id="adresse" name="adresse" placeholder="Adresse">
  		</div>
  		<div class="cha" id="cha" >
- 			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);">
+ 			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);"   >
  			<input type="text" id="numtel" name="numero" placeholder="Numero tel">
  			<input  type="text" id="cni" name="cni" placeholder="Numero d'Identification">
  		</div>
 
- 		<!-- 
- 		<div class="label" id="label">
+ 		</div>
+ 		<!-- <div class="label" id="label" >
      		<label for="processedCheckBox">Es-tu salarié(e) ?</label>
-     		<input type="checkbox" id="processedCheckBox" >
-		</div>
-	<div id="infosemploi"  >
+     		<input type="checkbox" id="processedCheckBox" checked onchange="getCheckboxStatus()">
+		</div> -->
+	<!-- <div id="infosemploi"  >
 
- 		<div class="chacha" id="chacha" >
+ 		<div class="chacha" id="chacha"  >
  			<input type="text" id="salaire" name="salaire" placeholder="Salaire">
  			<input type="text" id="profession" name="profession" placeholder="Profession">
  			
@@ -74,28 +73,63 @@
  		<h4>Infos Employeur</h4>
  		<div class="troisieme">
  			<div class="trois">
- 			<input type="text" id="nomemployeur" name="nomentre" placeholder="Nom">
- 			<input type="text" id="adressemployeur" name="adresseentre" placeholder="Adresse">
+ 			<input type="text" id="nomemployeur" name="nom" placeholder="Nom">
+ 			<input type="text" id="adressemployeur" name="adresse" placeholder="Adresse">
  			</div>
  			<div class="quatre">
  			<input type="text" id="rs" name="raisonsociale" placeholder="Raison Sociale">
- 			<input type="text" name="identre" id="id" placeholder="NINEA">
+ 			<input type="text" name="id" id="id" placeholder="NINEA">
  			</div>
  		</div>
- 	</div>
--->
-<script type="text/javascript" src="js/monscript.js"></script>
+ 	</div> -->
+
  	
- 	<div id="valider" class="valider" > 
- 		
+ 	<div id="valider" class="valider" >
  		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
  		
  	</div>
+
+<!-- <div id="valider1" class="valider1" style="display: none">
+ 		<input type="submit" name="submit"  value="Submit" style="background-color: #006400" >
+ 		
+ 	</div> -->
+
  		<span id="msg" style="color:red"></span>
  	</form>
- 	</div>
-</body>
 
+ 	<!-- //form2 -->
+
+ 	<!-- <form id="formmoral" name="formmoral" action="Controllers/ControllerMoral.php" method="POST"  style="display: none">
+ 		
+ 		<div id="info" style="display: none" >
+
+ 		<div class="chacha" id="cacha" style="display: none" >
+ 			<input type="text" id="salaire" name="salaire" placeholder="Salaire">
+ 			<input type="text" id="profession" name="profession" placeholder="Profession">
+ 			
+ 		</div>
+ 		
+ 		<h4>Infos Employeur</h4>
+ 		<div class="troisiem">
+ 			<div class="trois">
+ 			<input type="text" id="nomemployeur" name="nom" placeholder="Nom">
+ 			<input type="text" id="adressemployeur" name="adresse" placeholder="Adresse">
+ 			</div>
+ 			<div class="quatre">
+ 			<input type="text" id="rs" name="raisonsociale" placeholder="Raison Sociale">
+ 			<input type="text" name="id" id="id" placeholder="NINEA">
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div id="valider" class="valider" style="display: none">
+ 		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
+ 		
+ 	</div>
+ 	</form> -->
+ 	
+ </div>
+</body>
 <script type="text/javascript">
 	
 	function validateEmail(emailField){
@@ -111,6 +145,5 @@
 
 }
 </script>
-
-
+<script type="text/javascript" src="js/monscript.js"></script>
 </html>

@@ -11,8 +11,8 @@ $manager = new ManagerPhysique();
 if(isset($_POST['envoyer'])) {
 
    $physique= new Physique(array(
+        'nom'=>trim($_POST['nom'], ' '),
        'prenom'=>trim($_POST['prenom'], ' '),
-       'nom'=>trim($_POST['nom'], ' '),
        'adresse'=> trim($_POST['adresse'], ' '),
        'email'=>trim($_POST['email'], ' '),
        'numero'=>trim($_POST['numero'], ' '),

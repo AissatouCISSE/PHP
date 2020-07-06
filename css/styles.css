@@ -149,7 +149,7 @@ h4{
 }
 .troisieme{
 	 display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: 40px;
 }
 
@@ -251,14 +251,14 @@ select[type=select]{
 
 	display: flex;
 	flex-direction: row;
-	margin-left: 200px;
+	margin-left: 250px;
 
 }
 
 .choixcompte{
 	display: flex;
 	flex-direction: row;
-	margin-left: 200px;
+	margin-left: 50px;
 
 }
 
@@ -271,4 +271,10 @@ select[type=select]{
 .recherchermoral{
 	width: 400px;
 	margin-right: 50px;
+}
+
+.valide{
+	margin-left: 210px;
+	margin-right: 210px;
+	color: #006400;
 }

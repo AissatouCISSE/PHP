@@ -30,17 +30,34 @@
  	<h2>Ouverture de compte</h2>
 
 <form id="formulaire" name="form" action="Controllers/ControllerMoral.php" method="POST">
+
+
+
+	<div class="choix">
+ 			<div>
+ 				
+ 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" onChange="afficher()">
+ 				<!-- <option value=1>Choisissez le type de client</option> -->
+ 				<option value="client_moral.php">Client Moral</option>
+				<option value="index2.php">Client Physique</option>
+				
+			</select>
+
+ 		</div>
+ 		
+ 		</div> 
  		<!-- <h4>Infos Compte</h4>-->
  		<h4>Infos Employeur</h4>
  		<div class="troisieme">
  			<div class="trois">
- 			<input type="text" id="nomemployeur" name="nomemployeur" placeholder="Nom" required="">
- 			<input type="text" id="raisonsociale" name="raisonsociale" placeholder="raisonsociale" required>
+ 			<input type="text" id="nomemployeur" name="nomemployeur" placeholder="Nom" >
+ 			<input type="text" id="raisonsociale" name="raisonsociale" placeholder="raisonsociale">
  			</div>
  			<div class="quatre">
- 			<input type="text" id="rc" name="rc" placeholder="RC" required>
- 			<input type="text" name="ninea" id="ninea" placeholder="ninea" required>
+ 			<input type="text" id="rc" name="rc" placeholder="RC">
+ 			<input type="text" name="ninea" id="ninea" placeholder="ninea">
  			</div>
+
  		</div>
  	</div>
 
@@ -77,10 +94,17 @@
  		</div>
  	</div>
 
- 	
- 	<div id="valider" class="valider" > -->
+ 	 -->
+
+ 	 <!-- <div id="valider" class="valider" > 
  		
  		<input type="submit" name="envoyer"  value="Envoyer" style="background-color: #006400" >
+ 		
+ 	</div> -->
+
+ 	<div id="valide" class="valide" >
+ 		
+ 		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
  		
  	</div>
  		<span id="msg" style="color:red"></span>

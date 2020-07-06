@@ -12,8 +12,8 @@ class ManagerPhysique extends Manager{
         $req=self::InsertUpdate("INSERT INTO physique VALUES(?, ?, ? , ?, ?, ?,?)",
        array(
         $physique->getIdPhysique(),
-        $physique->getPrenom(),
         $physique->getNom(),
+        $physique->getPrenom(),
         $physique->getAdresse (),
         $physique->getEmail(),
         $physique->getNumero (),

@@ -1,56 +1,35 @@
-<?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require 'Config.php';
-//require 'index.php';
-/**
- * 
- */
-class Model
-{
-	private $pdo;
-	public function __construct()
-	{
-		# code...
-		$this->pdo=$this->getConnexion();
+<?php
+	$servername = "localhost";
+	$username = "aissatou";
+	$password = "password";
+	$dbname = "banque";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
 	}
-	public function getConnexion(){
-    try {
-        $host = DatabaseConfig::params()[0];
-        $dbname = DatabaseConfig::params()[1];
-        $user = DatabaseConfig::params()[2];
-        $mdp = DatabaseConfig::params()[3];
 
-        $dsn="mysql:host=$host;dbname=$dbname";
-        $this->pdo= new PDO($dsn, $user, $mdp, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-          // echo "Connexion etablie";
-    } catch (PDOException $ex) {
-        die('Erreur:'.$ex->getMessage());
-    }
-    return $this->pdo;
-  
-}
-
-	public function insert(){
-		if(isset($_POST['submit'])){
-			if (isset($_POST['nomentre']) && isset($_POST['adresseentre']) && isset($_POST['raisonsociale']) && isset($_POST['identre'])) {
-				if (!empty($_POST['nomentre']) && !empty($_POST['adresseentre']) && !empty($_POST['raisonsociale']) && !empty($_POST['identre'])) {
-						$nomentre = $_POST['nomentre'];
-						$adresseentre = $_POST['adresseentre'];
+	if(isset($_POST['envoyer'])){
+			if (isset($_POST['nomemployeur']) && isset($_POST['raisonsociale']) && isset($_POST['rc']) && isset($_POST['ninea'])) {
+				if (!empty($_POST['nomemployeur']) && !empty($_POST['raisonsociale']) && !empty($_POST['rc']) && !empty($_POST['ninea'])) {
+						$nomemployeur = $_POST['nomemployeur'];
 						$raisonsociale = $_POST['raisonsociale'];
-						$identre = $_POST['identre'];
-						$query = "INSERT INTO client_moral (raison_social,nomEmployeur,rc,ninea) VALUES('$raisonsociale','$nomentre','$raisonsociale','$identre')";
-						if ($sql = $this->conn->query($query)) {
-							# code...
-							echo "ok";
+						$rc = $_POST['rc'];
+						$ninea = $_POST['ninea'];
+						$query = "INSERT INTO client_moral (raisonsociale,nomemployeur,rc,ninea) VALUES('$raisonsociale','$nomemployeur','$rc','$ninea')";
+						// $sth = $dbh->prepare($query);
+      //   				$sth->execute(array_values($values));
+						if ($conn->query($query) === TRUE) {
+  							echo "successfully";
+						} else {
+  							echo "Error: " . $query . "<br>" . $conn->error;
 						}
-					
-				}else{
-					echo "<script>alert('empty');</script>";
-				}
+
+						$conn->close();
 				# code...
 			}
 		}
 	}
-}
-?>
+	?>

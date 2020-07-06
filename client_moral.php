@@ -29,15 +29,16 @@
  <div class="wrap">
  	<h2>Ouverture de compte</h2>
 
-<form id="formulaire" name="form" action="Controllers/ControlerPhysique.php" method="POST">
+<!-- <form id="formulaire" name="form" action="Controllers/ControllerMoral.php" method="POST"> -->
+	<form id="formulaire" name="form" action="model.php" method="POST">
  		<!-- <h4>Infos Compte</h4>-->
- 		<div class="choix" style="margin-left: 250px;">
- 			<div >
+ 		<div class="choix">
+ 			<div>
  				
- 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" >
+ 			<select type="select" id="typeclient" name="typeclient" onChange="location = this.options[this.selectedIndex].value;" onChange="afficher()">
  				<!-- <option value=1>Choisissez le type de client</option> -->
+				<option value="index3.php">Client Moral</option>
 				<option value="index2.php">Client Physique</option>
-				<option value="client_moral.php">Client Moral</option>
 			</select>
 
  		</div>
@@ -48,14 +49,12 @@
  			
  		<div class="aicha" id="aicha" >
  			
- 			<input type="text" id="nom" name="nom" placeholder="Nom">
- 			<input type="text" id="prenom" name="prenom" placeholder="Prenom">
- 			<input type="text" id="adresse" name="adresse" placeholder="Adresse">
+ 			<input type="text" id="nomemployeur" name="nomemployeur" placeholder="Nom">
+ 			<input type="text" id="raisonsociale" name="raisonsociale" placeholder="raisonsociale">
  		</div>
  		<div class="cha" id="cha" >
- 			<input type="text" id="email" name="email" placeholder="Email" onblur="validateEmail(this);">
- 			<input type="text" id="numtel" name="numero" placeholder="Numero tel">
- 			<input  type="text" id="cni" name="cni" placeholder="Numero d'Identification">
+ 			<input type="text" id="rc" name="rc" placeholder="RC">
+ 			<input type="text" id="ninea" name="ninea"  placeholder="ninea" >
  		</div>
 
  		<!-- 
@@ -84,33 +83,15 @@
  		</div>
  	</div>
 -->
-<script type="text/javascript" src="js/monscript.js"></script>
- 	
+ 	<script type="text/javascript" src="js/monscript.js"></script>
  	<div id="valider" class="valider" > 
  		
- 		<input type="submit" name="envoyer"  value="Valider" style="background-color: #006400" >
+ 		<input type="submit" name="envoyer"  value="Envoyer" style="background-color: #006400" >
  		
  	</div>
  		<span id="msg" style="color:red"></span>
  	</form>
  	</div>
 </body>
-
-<script type="text/javascript">
-	
-	function validateEmail(emailField){
-        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-        if (reg.test(emailField.value) == false) 
-        {
-            alert('Invalid Email Address');
-            return false;
-        }
-
-        return true;
-
-}
-</script>
-
 
 </html>
